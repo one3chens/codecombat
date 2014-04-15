@@ -8,6 +8,6 @@ LevelFeedbackSchema = new mongoose.Schema({
   created:
     type: Date
     'default': Date.now
-}, {strict: false})
+}, {strict: false, read: "nearest"})
 
 module.exports = LevelFeedback = mongoose.model('level.feedback', LevelFeedbackSchema)

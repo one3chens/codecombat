@@ -10,7 +10,7 @@ module.exports.connect = () ->
   address = module.exports.generateMongoConnectionString()
   winston.info "Connecting to Mongo with connection string #{address}"
 
-  mongoose.connect address
+  mongoose.connect address, { replset: { strategy: 'ping' }}
   mongoose.connection.once 'open', -> Grid.gfs = Grid(mongoose.connection.db, mongoose.mongo)
 
 
